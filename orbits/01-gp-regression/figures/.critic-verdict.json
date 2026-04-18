@@ -1,0 +1,34 @@
+{
+  "verdict": "ACCEPT",
+  "rounds": 1,
+  "reviewer": "orbit-agent self-review (figure-critic subagent not spawned in this workflow)",
+  "files_reviewed": [
+    "fit.png",
+    "residuals.png",
+    "results.png",
+    "narrative.png"
+  ],
+  "per_file": {
+    "fit.png": {
+      "verdict": "ACCEPT",
+      "notes": "Clean one-panel fit with scatter + posterior mean + 95% credible band + true-target reference. Inline metric + fitted noise sigma. 200 DPI, >1500px wide, ~210 KB."
+    },
+    "residuals.png": {
+      "verdict": "ACCEPT",
+      "notes": "Two-panel: residual-vs-x scatter with the true noise band shaded, plus a 12-bin histogram. Zero-residual reference dashed. Suptitle at y=1.05 does not collide with subplot titles. ~100 KB, 200 DPI."
+    },
+    "results.png": {
+      "verdict": "ACCEPT",
+      "notes": "Left: log-scale bars (baseline / target / GP) with numbers labelled on each bar. Right: per-seed MSE bars with target and mean reference lines. Matches research/style.md palette."
+    },
+    "narrative.png": {
+      "verdict": "ACCEPT",
+      "notes": "Three-panel baseline (constant / linear / GP) on shared y-axis with identical training data, true target, and predictions. Inline MSE per panel. Reads left-to-right as 'blunt -> sharp'."
+    }
+  },
+  "major_issues": [],
+  "minor_issues": [],
+  "problem": "Symbolic regression (noisy): 50 train points with sigma=0.05 Gaussian noise on x in [-5, 5]. Test MSE (minimise) on a clean 500-point grid. Target = 0.01.",
+  "measured_metric": 0.000696,
+  "direction": "minimize"
+}
